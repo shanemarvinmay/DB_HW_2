@@ -1,3 +1,4 @@
+# TODO include a rediculous amout of screenshots of EVERYTHING.
 '''
 wikicfg web crawler
 params topic
@@ -10,7 +11,7 @@ write output
 from time import sleep
 from bs4 import BeautifulSoup
 import pandas as pd
-from selenium import webdriver
+# from selenium import webdriver
 import requests
 
 
@@ -22,7 +23,7 @@ def parse_date_to_year(date):
     try:
         return int(date[-4:])
     except:
-        return 2024
+        return 0
  
 def parse_row_to_list(row):
     data = []
@@ -46,13 +47,12 @@ def parse_html_to_dataframe(html):
 
     table = html_parser.find("table", {"cellpadding": "3", "cellspacing": "1"})
     table_rows = table.find_all("tr")
-    # TODO start at page 1
-    for i in range(6, len(table_rows), 2):
+    for i in range(1, len(table_rows), 2):
         try:
             acronym, name = parse_row_to_list(table_rows[i])
+            when, where, _ = parse_row_to_list(table_rows[i+1])
         except:
-            raise Exception(f'\nrow @ {i+1}: {parse_row_to_list(table_rows[i+1])}\nrow @ {i}: {parse_row_to_list(table_rows[i])}')
-        when, where, _ = parse_row_to_list(table_rows[i+1])
+            continue
         data['acronym'].append(acronym)
         data['name'].append(name)
         data['when'].append(parse_date_to_year(when))
@@ -77,11 +77,14 @@ if __name__ == "__main__":
             try:
                 frames.append(parse_html_to_dataframe(html))
             except:
-                raise Exception(url)
+                pass
+            # TODO write about the query delimeter in your report.
+            # Query limiter
             sleep(7)
     
     df = pd.concat(frames)
     print('Datframe of scraped html data.')
     print(f'rows:{df.shape[0]}\tcolumns:{list(df.columns)}')
-    df.to_csv('conference_html_data.csv', sep='\t', encoding='utf-8')
+    df.to_csv('conference_html_data.csv', sep='\t', encoding='utf-8', index=False)
+    df[['acronym', 'name', 'where']].to_csv('MAY_EXERCISE_1_OUTPUT.csv', sep='\t', encoding='utf-8', index=False)
     print("Done")

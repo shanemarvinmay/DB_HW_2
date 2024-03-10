@@ -28,3 +28,6 @@ to dinner and/or watch a movie in the meanwhile).
 Big data doesn't have 20 pages.
 * [Link for proof](http://www.wikicfp.com/cfp/servlet/tool.search?q=big+data&year=a)
 * ![Image proving that big data only returns 1 page](./images/big_data_not_20_pages.png)
+
+## Exercise 2
+TODO write about consider cases such as empty locations/online, repeatedly posted conferences, etc.
