@@ -24,16 +24,23 @@ def parse_date_to_year(date):
         return int(date[-4:])
     except:
         return 0
- 
+
+def clean_string(string):
+    string = string.encode("utf-8")
+    string = string.decode("utf-8")
+    string = string.replace("\n", "")
+    string = string.replace("\t", " ")
+    return string
+
 def parse_row_to_list(row):
     data = []
     cells = row.find_all("td")
     for cell in cells:
         link = cell.find("a")
         if link:
-            data.append(link.text)
+            data.append(clean_string(link.text))
         elif cell.text:
-            data.append(cell.text)
+            data.append(clean_string(cell.text))
     return data
 
 def parse_html_to_dataframe(html):

@@ -9,10 +9,26 @@ if __name__ == '__main__':
     # TODO write about fill in missign locations with online, since they all seem to be online journals.
     df['where'] = df['where'].fillna('Online')
     # TODO write about handling this missing city because it wasn't parsed right.
-    df['where'] = df['where'].map({'JÃ¶nkÃ¶ping': 'Jönköping'})
+    # where JÃ¶nkÃ¶ping ->  Jönköping
+    # df['where'] = df['where'].map({'JÃ¶nkÃ¶ping': 'Jönköping'})
+    # Triming whitespace
+    for column in df.columns:
+        df[column] = df[column].str.strip()
+        df[column] = df[column].str.replace('\n', '')
+        df[column] = df[column].str.replace('\r', '')
+        df[column] = df[column].str.replace('\t', ' ')
+        df[column] = df[column].str.replace('.', ',')
+        # replacing „
+        df[column] = df[column].str.replace(chr(132), ',')
+        # replace ¶ with Ö
+        df[column] = df[column].str.replace(chr(182), chr(214))
+    # Checking to make sure whitespace has been stripped.
+    for idx, row in df.iterrows():
+        for col in df.columns:
+            print(f"|{row[col]}|", end='\t')
+        print()
     # missing value stuff
     # print(df.columns) ['acronym', 'name', 'where']
-    # where JÃ¶nkÃ¶ping ->  Jönköping
     # where nan
     for col in df.columns:
         if df[col].isnull().values.any():
@@ -21,7 +37,12 @@ if __name__ == '__main__':
         # if pd.isna(row['where']) and 'ournal' not in row['name']:
         #     print(row['acronym'], row['name'])  
         if row['where'] == 'JÃ¶nkÃ¶ping':
+            for i in row['where']:
+                print(i, ord(i))
             print(row['acronym'], row['name'])  
+        # if row['where'] == 'Mainz, Germany (Rheingoldhalle) & online':
+        #     for i in row['name']:
+        #         print(i, ord(i))
     # duplicate stuff
     # a = df['A'].unique()
     # print(sorted(a))
@@ -48,5 +69,5 @@ if __name__ == '__main__':
     #     for id, row in df.iterrows():
     #         if  id in dup_ids:
     #             print(row[col])
-            
+    df[['acronym', 'name', 'where']].to_csv('MAY_EXERCISE_2_OUTPUT.csv', sep='\t', encoding='utf-8', index=False)
     print("Done")
