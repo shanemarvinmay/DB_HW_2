@@ -17,13 +17,18 @@ def main():
     #   current_word - string containing a word (the key)
     #   group - iterator yielding all ["&lt;current_word&gt;", "&lt;count&gt;"] items
     for city, group in groupby(data, itemgetter(0)):
-        print(f"{city}\t{group}")
+        try:
+            total = sum(int(count) for _, count in group)
+            print(f"{city}\t{total}")
+        except ValueError:
+            # count was not a number, so silently discard this item
+            pass
+        # for city, count in group:
+        #     print(f"{city}\t{i}")
         # try:
         #     total = sum(int(count) for _, count in group)
         #     print(f'{city}\t{total}')
-        # except ValueError:
-        #     # count was not a number, so silently discard this item
-        #     pass
+        
 
 if __name__ == "__main__":
     main()

@@ -28,16 +28,29 @@ to dinner and/or watch a movie in the meanwhile).
 Big data doesn't have 20 pages.
 * [Link for proof](http://www.wikicfp.com/cfp/servlet/tool.search?q=big+data&year=a)
 * ![Image proving that big data only returns 1 page](./images/big_data_not_20_pages.png)
+The solution to this issue is to just the links the professor supplied.
 
 ## Exercise 2
 TODO write about consider cases such as empty locations/online, repeatedly posted conferences, etc.
 
 ## Exercise 3
-hdfs dfs -rm -r -f /user/shanemay/exercise_3/output/num_conference_per_city    
-`hadoop namenode -format`
-Run: `start-all.sh`
-Go to: http://localhost:9870
-`hdfs dfs -mkdir -p /user/shanemay/exercise_3/input`
+### TODO
+* add s to conferences
+* replace universities with city names
+* Tuscany case
+* JNTata Auditorium IISc which is now J
+* Laguna Hills California
+* Lugano-Viganello vs Lugano
+* Book by Qusay F
+* MNIT Jaipur
+* Washington D
+### Steps
+* hdfs dfs -rm -r -f /user/shanemay/exercise_3/output/num_conference_per_city    
+* `hadoop namenode -format`
+* Run: `start-all.sh`
+* Go to: http://localhost:9870
+* `hdfs dfs -mkdir -p /user/shanemay/exercise_3/input`
+* `hdfs dfs -put MAY_EXERCISE_2_OUTPUT.csv /user/shanemay/exercise_3/input`
 ```
 hadoop jar /opt/homebrew/Cellar/hadoop/3.3.6/libexec/share/hadoop/tools/lib/hadoop-streaming-3.3.6.jar \
 -file "num_conference_per_city_mapper.py"     -mapper "num_conference_per_city_mapper.py"  \
@@ -46,9 +59,14 @@ hadoop jar /opt/homebrew/Cellar/hadoop/3.3.6/libexec/share/hadoop/tools/lib/hado
 ```
 `hadoop fs -get /user/shanemay/exercise_3/output/num_conference_per_city num_conference_per_city`
 ### number of conferences per city
+    * 1 mapper and 1 reducer 
+        * show image of mapper and reducer. MAKE SURE TO EXPLAIN THEM AS IF THEY CAN'T OPEN THE FILE AND READ.
     * create plot
-    * 1 mapper and 1 reducer
-`hdfs dfs -put MAY_EXERCISE_2_OUTPUT.csv /user/shanemay/exercise_3/input`
+        * show image of squished plot
+        * explain that 185 bars isn't reflective of a data scientists' actual work and doesn't convey the information clearly.
+        * create graph of top ten cities
+    
+
 * list of conferences per city
     * 1 mapper and 1 reducer
 * list of cities per conference (regardless of year)
