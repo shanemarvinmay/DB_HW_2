@@ -1,7 +1,6 @@
 import pandas as pd
 
 def parse_conference_acronym(conference):
-    print(conference)
     # Removing the year from the acronym.
     conference_parts = conference.split(' ')
     if conference_parts[-1].isnumeric():
@@ -70,15 +69,13 @@ if __name__ == '__main__':
     # Cleaning up the acronym column
     df['acronym'] = df.apply(lambda row: parse_conference_acronym(row['acronym']), axis=1)
 
-    # Saving the data.
+    # Cleaning up the name column
+    df['name'] = df.apply(lambda row: parse_conference_name(row['name']), axis=1)
+
+    # Saving the required data for the exercise.
     df[['acronym', 'name', 'where']].to_csv('MAY_EXERCISE_2_OUTPUT.csv', sep='\t', encoding='utf-8', index=False)
 
-    '''
-    CLEAN DATA FOR FUTURE EXERCISES
-    '''
-    
-
-    # Saving the data.
+    # Saving the data that I will find useful for the rest of the exercises.
     df.to_csv('MAY_conference_data.csv', sep='\t', encoding='utf-8', index=False)
 
     print("Done")
