@@ -34,7 +34,7 @@ The solution to this issue is to just the links the professor supplied.
 TODO write about consider cases such as empty locations/online, repeatedly posted conferences, etc.
 
 ## Exercise 3
-### number of conferences per city
+### Number of Conferences per City
 ### TODO
 * add s to conferences
 * replace universities with city names
@@ -68,17 +68,21 @@ hadoop jar /opt/homebrew/Cellar/hadoop/3.3.6/libexec/share/hadoop/tools/lib/hado
         * create graph of top ten cities
     
 
-### list of conferences per city
+### List of Conferences per City
 * 1 mapper and 1 reducer
+# TODO mention why you chose acronym and how you took out the year
 ```
 hadoop jar /opt/homebrew/Cellar/hadoop/3.3.6/libexec/share/hadoop/tools/lib/hadoop-streaming-3.3.6.jar \
 -file "list_conf_per_city_mapper.py"     -mapper "list_conf_per_city_mapper.py"  \
 -file "list_conf_per_city_reducer.py"   -reducer "list_conf_per_city_reducer.py" \
 -input /user/shanemay/exercise_3/input/MAY_EXERCISE_2_OUTPUT.csv -output /user/shanemay/exercise_3/output/list_conf_per_city
 ```
-`hadoop fs -get /user/shanemay/exercise_3/output/list_conf_per_city list_conf_per_city`
+```hadoop fs -get /user/shanemay/exercise_3/output/list_conf_per_city list_conf_per_city```
+#### Sort Cities By Number of Conferences
+```python3 hadoop_output_sorter.py list_conf_per_city/part-00000 MAY_list_conferences_per_cities.csv list```
 
-### list of cities per conference (regardless of year)
+### List of Cities Per Conference (regardless of year)
+# TODO mention why you chose acronym and how you took out the year
 * 1 mapper and 1 reducer
 
 ```
@@ -90,6 +94,6 @@ hadoop jar /opt/homebrew/Cellar/hadoop/3.3.6/libexec/share/hadoop/tools/lib/hado
 
 `hadoop fs -get /user/shanemay/exercise_3/output/list_cities_per_conf list_cities_per_conf`
 
-* number of conferences per city per year (time series plot)
+### number of conferences per city per year (time series plot)
     * create plot
     * not limited to 1 mapper and 1 reducer
