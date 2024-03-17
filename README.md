@@ -34,6 +34,7 @@ The solution to this issue is to just the links the professor supplied.
 TODO write about consider cases such as empty locations/online, repeatedly posted conferences, etc.
 
 ## Exercise 3
+### number of conferences per city
 ### TODO
 * add s to conferences
 * replace universities with city names
@@ -58,7 +59,7 @@ hadoop jar /opt/homebrew/Cellar/hadoop/3.3.6/libexec/share/hadoop/tools/lib/hado
 -input /user/shanemay/exercise_3/input/MAY_EXERCISE_2_OUTPUT.csv -output /user/shanemay/exercise_3/output/num_conference_per_city
 ```
 `hadoop fs -get /user/shanemay/exercise_3/output/num_conference_per_city num_conference_per_city`
-### number of conferences per city
+
     * 1 mapper and 1 reducer 
         * show image of mapper and reducer. MAKE SURE TO EXPLAIN THEM AS IF THEY CAN'T OPEN THE FILE AND READ.
     * create plot
@@ -67,10 +68,28 @@ hadoop jar /opt/homebrew/Cellar/hadoop/3.3.6/libexec/share/hadoop/tools/lib/hado
         * create graph of top ten cities
     
 
-* list of conferences per city
-    * 1 mapper and 1 reducer
-* list of cities per conference (regardless of year)
-    * 1 mapper and 1 reducer
+### list of conferences per city
+* 1 mapper and 1 reducer
+```
+hadoop jar /opt/homebrew/Cellar/hadoop/3.3.6/libexec/share/hadoop/tools/lib/hadoop-streaming-3.3.6.jar \
+-file "list_conf_per_city_mapper.py"     -mapper "list_conf_per_city_mapper.py"  \
+-file "list_conf_per_city_reducer.py"   -reducer "list_conf_per_city_reducer.py" \
+-input /user/shanemay/exercise_3/input/MAY_EXERCISE_2_OUTPUT.csv -output /user/shanemay/exercise_3/output/list_conf_per_city
+```
+`hadoop fs -get /user/shanemay/exercise_3/output/list_conf_per_city list_conf_per_city`
+
+### list of cities per conference (regardless of year)
+* 1 mapper and 1 reducer
+
+```
+hadoop jar /opt/homebrew/Cellar/hadoop/3.3.6/libexec/share/hadoop/tools/lib/hadoop-streaming-3.3.6.jar \
+-file "list_cities_per_conf_mapper.py"     -mapper "list_cities_per_conf_mapper.py"  \
+-file "list_cities_per_conf_reducer.py"   -reducer "list_cities_per_conf_reducer.py" \
+-input /user/shanemay/exercise_3/input/MAY_EXERCISE_2_OUTPUT.csv -output /user/shanemay/exercise_3/output/list_cities_per_conf
+```
+
+`hadoop fs -get /user/shanemay/exercise_3/output/list_cities_per_conf list_cities_per_conf`
+
 * number of conferences per city per year (time series plot)
     * create plot
     * not limited to 1 mapper and 1 reducer
