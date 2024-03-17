@@ -103,7 +103,9 @@ hadoop jar /opt/homebrew/Cellar/hadoop/3.3.6/libexec/share/hadoop/tools/lib/hado
 
 ```python3 hadoop_output_sorter.py list_cities_per_conf/part-00000 MAY_list_cities_per_conf.csv list```
 
-### number of conferences per city per year (time series plot)
+Show MAY_list_cities_per_conf.csv file
+
+### Number of Conferences per City per Year (Time Series Plot)
     * create plot
     * not limited to 1 mapper and 1 reducer
 
