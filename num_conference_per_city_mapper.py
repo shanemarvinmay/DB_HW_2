@@ -13,8 +13,9 @@ def main():
     rows = read_input(sys.stdin)
     for row in rows:
         location = row[2].split(',')
+        # If the location length is greater than 1, then a city was most likely specified.
         if len(location) > 1:
-            city = location[0] # ''.join(location[:-1])
+            city = location[0]
             city = city.strip().title()
             print(f'{city}\t1')
 

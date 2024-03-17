@@ -1,0 +1,185 @@
+London	24
+Copenhagen	18
+Xiamen	11
+Bangkok	10
+Beijing	10
+Dubai	9
+Melbourne	9
+Sydney	9
+Tokyo	8
+Vancouver	8
+Hangzhou	7
+Zurich	7
+Chengdu	6
+Chennai	6
+Chongqing	6
+Macau	5
+New York	5
+Qingdao	5
+Shanghai	5
+Xi'An	5
+Cape Town	4
+Milan	4
+Osaka	4
+Seattle	4
+Yokohama	4
+Barcelona	3
+Dalian	3
+Danang	3
+Guangzhou	3
+Kuala Lumpur	3
+Nanjing	3
+Naples	3
+Oxford	3
+Paris	3
+Phuket Island	3
+The University Of Tokyo	3
+Tianjin	3
+Toronto	3
+Wenzhou	3
+Athens	2
+Belgrade	2
+Bruges	2
+Chiang Mai	2
+Chiangmai	2
+Dubrovnik	2
+Fukuoka	2
+Gran Canaria	2
+Haikou	2
+Hefei	2
+Hongkong	2
+Huddersfield	2
+Istanbul	2
+Kyoto	2
+Macao	2
+Malmãö	2
+Nagoya	2
+Niagara Falls	2
+Okayama	2
+Ostrava	2
+Pisa	2
+Sanya	2
+Seattle Wa	2
+Sharjah	2
+Sibiu	2
+Swansea	2
+Vienna	2
+Wuxi	2
+Xiangyang	2
+Xining	2
+Abu Dhabi	1
+Adelaide	1
+Amsterdam	1
+Auckland	1
+Aveiro	1
+Baratti - Tuscany	1
+Bayonne	1
+Belfast	1
+Bengaluru	1
+Bhopal	1
+Bogota	1
+Book By Qusay F	1
+Boston	1
+Boulder	1
+Bournemouth	1
+Bratislava	1
+Brighton	1
+Brunel University London	1
+Buffalo	1
+Burgas	1
+Cadiz	1
+Cagliari	1
+Cairo	1
+Cambridge	1
+Cartagena	1
+Casablanca	1
+Changchun	1
+Chania	1
+Craiova	1
+Dali	1
+Dead Sea	1
+Dijon	1
+Ecai	1
+Edinburgh	1
+Edmonton	1
+Florence	1
+France	1
+Fudan University	1
+Fuzhou	1
+Gif-Sur-Yvette (Paris Suburbs)	1
+Golden Sands	1
+Hagenberg	1
+Hanoi	1
+Heerlen	1
+Hoboken	1
+Ibs Bangalore	1
+Inha University	1
+J	1
+Kagoshima	1
+Kitakyushu	1
+Kuching	1
+Laguna Hills	1
+Lancaster	1
+Lecce	1
+Lisbon	1
+Los Angeles	1
+Lugano	1
+Lugano-Viganello	1
+Macau S	1
+Mainz	1
+Malmo	1
+Medan	1
+Miami	1
+Mnit Jaipur	1
+Montevideo	1
+Noakhali	1
+Odense	1
+Orlando	1
+Osaka University	1
+Oslo	1
+Oulu	1
+Palermo	1
+Pattaya City	1
+Penang	1
+Porto	1
+Porto De Galinhas	1
+Riyadh	1
+Rome	1
+Salt Lake City	1
+San Antonio	1
+San Jose	1
+San Luis Potosi	1
+Sanghai	1
+Santiago De Compostela	1
+Sendai	1
+Seoul	1
+Seville	1
+Sheffield	1
+Sikkim	1
+Sofia	1
+Sousse	1
+Sozopol	1
+Sunderland	1
+Suzhou	1
+Taicang	1
+Talca	1
+Tallinn	1
+Tampere	1
+Tenerife	1
+Tirunelveli	1
+Tottori	1
+Tuscany	1
+Universiti Tunku Abdul Rahman	1
+Uppsala	1
+Vilnius	1
+Warsaw	1
+Waseda University In Tokyo	1
+Washington D	1
+Wellington	1
+Wuhan	1
+Wuhu	1
+Xanthi	1
+Xidian University	1
+Xishuangbanna	1
+Yasmine Hammamet	1
+Zagreb	1

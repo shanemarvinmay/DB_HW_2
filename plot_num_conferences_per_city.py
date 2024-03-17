@@ -4,7 +4,7 @@ import matplotlib.colors as mcolors
 
 plt.figure().set_figwidth(400)
 plt.figure().set_figheight(800)
-df = pd.read_csv('num_conference_per_city/num_conferences_per_city_sorted.txt', sep='\t', names=['City', 'Conferences'], header=None)
+df = pd.read_csv('MAY_num_conf_per_city.csv', sep='\t', names=['City', 'Conferences'], header=None)
 df = df.head(10)
 colors = [
     (31, 119, 180),  # blue

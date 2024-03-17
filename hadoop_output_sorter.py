@@ -6,8 +6,7 @@ input_file = argv[1]
 output_file = argv[2]
 # argv[3] is the way in which the file should be sorted. 
 # The options are 'count', 'list'.
-sort_type = argv[2]
-
+sort_type = argv[3]
 
 # Reading the input file
 with open(input_file, 'r') as f:
@@ -33,7 +32,9 @@ def sort_by_list_len(rows):
     return rows
 
 if sort_type == 'count':
+    print(rows[:4])
     rows = sort_by_count(rows)
+    print(rows[:4])
 else:
     rows = sort_by_list_len(rows)
 

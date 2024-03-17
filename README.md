@@ -51,21 +51,32 @@ TODO write about consider cases such as empty locations/online, repeatedly poste
 * Run: `start-all.sh`
 * Go to: http://localhost:9870
 * `hdfs dfs -mkdir -p /user/shanemay/exercise_3/input`
-* `hdfs dfs -put MAY_EXERCISE_2_OUTPUT.csv /user/shanemay/exercise_3/input`
+* `hdfs dfs -put MAY_conference_data.csv /user/shanemay/exercise_3/input`
 ```
 hadoop jar /opt/homebrew/Cellar/hadoop/3.3.6/libexec/share/hadoop/tools/lib/hadoop-streaming-3.3.6.jar \
 -file "num_conference_per_city_mapper.py"     -mapper "num_conference_per_city_mapper.py"  \
 -file "num_conference_per_city_reducer.py"   -reducer "num_conference_per_city_reducer.py" \
--input /user/shanemay/exercise_3/input/MAY_EXERCISE_2_OUTPUT.csv -output /user/shanemay/exercise_3/output/num_conference_per_city
+-input /user/shanemay/exercise_3/input/MAY_conference_data.csv -output /user/shanemay/exercise_3/output/num_conference_per_city
 ```
-`hadoop fs -get /user/shanemay/exercise_3/output/num_conference_per_city num_conference_per_city`
 
-    * 1 mapper and 1 reducer 
-        * show image of mapper and reducer. MAKE SURE TO EXPLAIN THEM AS IF THEY CAN'T OPEN THE FILE AND READ.
-    * create plot
-        * show image of squished plot
-        * explain that 185 bars isn't reflective of a data scientists' actual work and doesn't convey the information clearly.
-        * create graph of top ten cities
+# TODO input execution screenshots
+
+```hadoop fs -get /user/shanemay/exercise_3/output/num_conference_per_city num_conference_per_city```
+
+```python3 hadoop_output_sorter.py num_conference_per_city/part-00000 MAY_num_conf_per_city.csv count```
+
+# TODO input screenshot of num_conference_per_city output
+
+```python3 plot_num_conferences_per_city.py```
+
+# TODO input screenshot of num_conference_per_city graph outpu
+
+* 1 mapper and 1 reducer 
+    * show image of mapper and reducer. MAKE SURE TO EXPLAIN THEM AS IF THEY CAN'T OPEN THE FILE AND READ.
+* create plot
+    * show image of squished plot
+    * explain that 185 bars isn't reflective of a data scientists' actual work and doesn't convey the information clearly.
+    * create graph of top ten cities
     
 
 ### List of Conferences per City
