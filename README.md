@@ -84,7 +84,14 @@ hadoop jar /opt/homebrew/Cellar/hadoop/3.3.6/libexec/share/hadoop/tools/lib/hado
 ### List of Cities Per Conference (regardless of year)
 # TODO mention why you chose acronym and how you took out the year
 * 1 mapper and 1 reducer
-
+#### Cleaning Conference Names
+* remove part with parathensis
+* remove any numeric part
+# TODO make sure to write about:
+* why chose title over acronym
+* compare acronym vs title
+* suspected conferences being the same but different ending title
+* locations like university
 ```
 hadoop jar /opt/homebrew/Cellar/hadoop/3.3.6/libexec/share/hadoop/tools/lib/hadoop-streaming-3.3.6.jar \
 -file "list_cities_per_conf_mapper.py"     -mapper "list_cities_per_conf_mapper.py"  \
@@ -92,8 +99,11 @@ hadoop jar /opt/homebrew/Cellar/hadoop/3.3.6/libexec/share/hadoop/tools/lib/hado
 -input /user/shanemay/exercise_3/input/MAY_EXERCISE_2_OUTPUT.csv -output /user/shanemay/exercise_3/output/list_cities_per_conf
 ```
 
-`hadoop fs -get /user/shanemay/exercise_3/output/list_cities_per_conf list_cities_per_conf`
+```hadoop fs -get /user/shanemay/exercise_3/output/list_cities_per_conf list_cities_per_conf```
+
+```python3 hadoop_output_sorter.py list_cities_per_conf/part-00000 MAY_list_cities_per_conf.csv list```
 
 ### number of conferences per city per year (time series plot)
     * create plot
     * not limited to 1 mapper and 1 reducer
+

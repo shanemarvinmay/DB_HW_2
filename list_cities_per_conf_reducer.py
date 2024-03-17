@@ -19,7 +19,8 @@ def main():
     for conference, group in groupby(data, itemgetter(0)):
         try:
             cities = [city for _, city in group]
-            print(f"{conference}\t{', '.join(cities)}")
+            unique_cities = set(cities)
+            print(f"{conference}\t{', '.join(list(unique_cities))}")
         except:
             # An error occured parsing the city and conferences.
             pass
