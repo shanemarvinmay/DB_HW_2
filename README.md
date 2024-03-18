@@ -1,6 +1,7 @@
 # DB_HW_2
 This is the 2nd homework assignment for topics in databases.
 
+**TODO clean up list conf and city mapper and reducers**
 
 ## Exercise 1: Data Crawling
 Crawl WikiCFP for "Big Data", "Machine Learning", and "Artificial Intelligence" conferences and their
@@ -139,3 +140,29 @@ hadoop jar /opt/homebrew/Cellar/hadoop/3.3.6/libexec/share/hadoop/tools/lib/hado
     * create plot
     * not limited to 1 mapper and 1 reducer
 
+**TODO explain year/city mapper to reducer idea**
+
+```
+hadoop jar /opt/homebrew/Cellar/hadoop/3.3.6/libexec/share/hadoop/tools/lib/hadoop-streaming-3.3.6.jar \
+-file "num_conf_per_city_per_year_mapper.py"     -mapper "num_conf_per_city_per_year_mapper.py"  \
+-file "num_conf_per_city_per_year_reducer.py"   -reducer "num_conf_per_city_per_year_reducer.py" \
+-input /user/shanemay/exercise_3/input/MAY_conference_data.csv -output /user/shanemay/exercise_3/output/num_conf_per_city_per_year
+```
+
+**TODO include screenshots of execution**
+
+```hadoop fs -get /user/shanemay/exercise_3/output/num_conf_per_city_per_year num_conf_per_city_per_year```
+
+**TODO include hadoop output screenshot**
+
+```python3 hadoop_output_sorter.py num_conf_per_city_per_year/part-00000 MAY_num_conf_per_city_per_year.csv count```
+
+**TODO include output screenshot**
+
+```python3 plot_num_conf_per_city_per_year.py```
+
+**TODO show squished graph**
+
+```python3 plot_num_conf_per_city_per_year.py```
+
+**TODO show graph**

@@ -1,6 +1,5 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import matplotlib.colors as mcolors
 
 plt.figure().set_figwidth(400)
 plt.figure().set_figheight(800)

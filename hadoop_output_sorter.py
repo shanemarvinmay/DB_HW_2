@@ -18,10 +18,18 @@ rows = data.split('\n')
 rows.pop()
 
 def sort_by_count(rows):
+    count_idx = 1
     for i in range(len(rows)):
         rows[i] = rows[i].split('\t')
-        rows[i][1] = int(rows[i][1])
-    rows = sorted(rows, key=lambda row: row[1], reverse=True)
+        try:
+            rows[i][count_idx] = int(rows[i][count_idx])
+        except:
+            if count_idx == 2:
+                raise Exception(f"Can't convert row[{count_idx}] to an int")
+            count_idx = 2
+            rows[i][count_idx] = int(rows[i][count_idx])
+
+    rows = sorted(rows, key=lambda row: row[count_idx], reverse=True)
     return rows
 
 def sort_by_list_len(rows):
@@ -41,4 +49,7 @@ else:
 # Writing output file
 with open(output_file, 'w') as f:
     for row in rows:
-        f.write(f"{row[0]}\t{row[1]}\n")
+        line = []
+        for cell in row:
+            line.append(f"{cell}")
+        f.write(f"{'\t'.join(line)}\n")

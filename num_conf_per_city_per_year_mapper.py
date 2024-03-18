@@ -16,11 +16,17 @@ def main():
     # Input comes from STDIN (standard input)
     rows = read_input(sys.stdin)
     for row in rows:
-        conference = row[1]
         location = row[2].split(',')
-        if len(location) > 1:
+        # Making sure the city was listed and not just the countr/state.
+        if len(location) < 2:
+            continue
+        # Attempting to parse the year.
+        try:
+            year = int(row[3])
             city = parse_city(location)
-            print(f'{conference}\t{city}')
+            print(f'{year}\t{city}')
+        except:
+            continue
 
 if __name__ == "__main__":
     main()
