@@ -22,8 +22,6 @@ to dinner and/or watch a movie in the meanwhile).
     * requests
     * bs4
     * pandas
-    * selenium
-        * selenium==4.18.1 (for requirement.txt)
 
 ### Errors 
 Big data doesn't have 20 pages.
