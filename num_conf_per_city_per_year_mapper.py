@@ -9,6 +9,7 @@ def read_input(file):
         yield line.split('\t')
 
 def parse_city(location):
+    # Extract the city and return it in title case.
     city = location[0]
     return city.strip().title()
 
@@ -16,6 +17,8 @@ def main():
     # Input comes from STDIN (standard input)
     rows = read_input(sys.stdin)
     for row in rows:
+        # Split the location into parts.
+        # Each part is either the country, state, city, or school.
         location = row[2].split(',')
         # Making sure the city was listed and not just the countr/state.
         if len(location) < 2:

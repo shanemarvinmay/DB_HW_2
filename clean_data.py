@@ -41,9 +41,7 @@ if __name__ == '__main__':
     # Removing duplicates
     df = df.drop_duplicates()
     # Filling mising values.
-    # TODO write about fill in missign locations with online, since they all seem to be online journals.
     df['where'] = df['where'].fillna('Online')
-    # TODO write about handling this missing city because it wasn't parsed right.
     # Triming whitespace
     for column in df.columns:
         df[column] = df[column].str.strip()

@@ -1,21 +1,10 @@
-# TODO include a rediculous amout of screenshots of EVERYTHING.
-'''
-wikicfg web crawler
-params topic
-
-steps
-get html
-parse html
-write output
-'''
 from time import sleep
 from bs4 import BeautifulSoup
 import pandas as pd
-# from selenium import webdriver
 import requests
 
 
-def get_wikicfg_html(search_term, url):
+def get_wikicfg_html(url):
     x = requests.get(url)
     return x.text
 
@@ -26,6 +15,7 @@ def parse_date_to_year(date):
         return 0
 
 def clean_string(string):
+    '''Handling encoding and spacing errors in strings.'''
     string = string.encode("utf-8")
     string = string.decode("utf-8")
     string = string.replace("\n", "")
@@ -80,12 +70,11 @@ if __name__ == "__main__":
         for page in range(1, 21):
             print(f'Processing page {page} of 20')
             url = f"{search_terms_to_urls[search_term]}&page={page}"
-            html = get_wikicfg_html(search_term, url)
+            html = get_wikicfg_html(url)
             try:
                 frames.append(parse_html_to_dataframe(html))
             except:
                 pass
-            # TODO write about the query delimeter in your report.
             # Query limiter
             sleep(7)
     

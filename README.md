@@ -34,18 +34,8 @@ The solution to this issue is to just the links the professor supplied.
 
 ## Exercise 3
 ### Number of Conferences per City
-**TODO
-* add s to conferences
-* replace universities with city names
-* Tuscany case
-* JNTata Auditorium IISc which is now J
-* Laguna Hills California
-* Lugano-Viganello vs Lugano
-* Book by Qusay F
-* MNIT Jaipur
-* Washington D**
-### Steps
-* hdfs dfs -rm -r -f /user/shanemay/exercise_3/output/num_conference_per_city    
+
+### Steps  
 * `hadoop namenode -format`
 * Run: `start-all.sh`
 * Go to: http://localhost:9870
@@ -71,7 +61,7 @@ hadoop jar /opt/homebrew/Cellar/hadoop/3.3.6/libexec/share/hadoop/tools/lib/hado
 **TODO input screenshot of num_conference_per_city graph output**
 
 * 1 mapper and 1 reducer 
-    * show image of mapper and reducer. MAKE SURE TO EXPLAIN THEM AS IF THEY CAN'T OPEN THE FILE AND READ.
+    * show image of mapper and reducer.
 * create plot
     * show image of squished plot
     * explain that 185 bars isn't reflective of a data scientists' actual work and doesn't convey the information clearly.
